@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- This viewport tag is what makes the page mobile-friendly.
+       Without it, phones pretend to be 980px-wide desktops and shrink everything. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency plumber or electrician, right now</title>
+  <meta name="description" content="Book a trusted, self-employed local plumber or electrician in minutes. No quote forms, no waiting days for callbacks.">
+
+  <!-- Inter font, same as the Figma design. Loaded from Google Fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============ HERO ============
+       In the Figma file this was the "Hero" auto-layout frame.
+       Auto-layout in Figma = flexbox in CSS. The mapping you'll see everywhere:
+         Figma itemSpacing  -> CSS gap
+         Figma padding      -> CSS padding
+         Figma FILL width   -> CSS width: 100% (or flex: 1)
+  -->
+  <header class="hero">
+    <div class="container">
+      <h1>Emergency plumber or electrician, right&nbsp;now</h1>
+      <p class="hero-sub">
+        Book a trusted, self-employed local pro in minutes —
+        no quote forms, no waiting days for callbacks.
+      </p>
+
+      <!-- The role fork: the single most important element on the page.
+           These are <a> links styled as buttons, because they navigate
+           (jump to sections), they don't submit anything. -->
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#customer">I need a tradesperson</a>
+        <a class="btn btn-secondary" href="#signup">I'm a plumber or electrician</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="how" id="customer">
+    <div class="container">
+      <h2>How it works</h2>
+
+      <!-- Each card is a small flexbox row: number badge on the left,
+           text column on the right. Look at .step in the CSS. -->
+      <ol class="steps">
+        <li class="step">
+          <span class="step-number" aria-hidden="true">1</span>
+          <div class="step-text">
+            <h3>See who's available</h3>
+            <p>Live list of local pros who are online and ready to take a job.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-number" aria-hidden="true">2</span>
+          <div class="step-text">
+            <h3>Book instantly</h3>
+            <p>No quote forms. Pick a pro, confirm the job, they're on their way.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-number" aria-hidden="true">3</span>
+          <div class="step-text">
+            <h3>Pay when it's done</h3>
+            <p>Secure payment and a digital invoice, straight to your phone.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ TRADESPERSON SIGNUP ============
+       The dark navy panel from the Figma design. This is the section
+       that actually earns its keep: it collects your first supply-side leads.
+
+       The form posts to FormSubmit.co — a free service that emails you
+       every submission, no account needed. HOW IT ACTIVATES: the first
+       time anyone submits (do it yourself as a test), FormSubmit emails
+       you a one-time confirmation link. Click it, and the form is live.
+
+       SPAM TIP: after that first confirmation, FormSubmit's email gives
+       you a random alias string. Replace the email address below with
+       that alias before pushing to GitHub, so your address isn't
+       harvestable from the public source code. -->
+  <section class="signup" id="signup">
+    <div class="container">
+      <h2>Work for yourself, not an agency</h2>
+      <p class="signup-sub">
+        Register your interest and be first on the platform in your city.
+        Free for early sign-ups.
+      </p>
+
+      <form action="https://formsubmit.co/abdallahdahli01@gmail.com" method="POST">
+        <!-- Hidden config fields FormSubmit understands: -->
+        <!-- subject line of the email you receive -->
+        <input type="hidden" name="_subject" value="New tradesperson signup!">
+        <!-- see answers as a tidy table instead of raw text -->
+        <input type="hidden" name="_template" value="table">
+        <!-- Every input is wrapped with a <label> for accessibility.
+             The label is visually hidden (see .visually-hidden in CSS)
+             but screen readers still announce it. Placeholders alone
+             are not accessible labels. -->
+        <label class="visually-hidden" for="name">Full name</label>
+        <input id="name" name="name" type="text" placeholder="Full name" required>
+
+        <label class="visually-hidden" for="trade">Trade</label>
+        <select id="trade" name="trade" required>
+          <option value="" disabled selected>Trade — plumber or electrician</option>
+          <option value="plumber">Plumber</option>
+          <option value="electrician">Electrician</option>
+          <option value="both">Both</option>
+        </select>
+
+        <label class="visually-hidden" for="postcode">Postcode area you cover</label>
+        <input id="postcode" name="postcode" type="text" placeholder="Postcode area you cover (e.g. IV51)" required>
+
+        <label class="visually-hidden" for="phone">Phone number</label>
+        <input id="phone" name="phone" type="tel" placeholder="Phone number" required>
+
+        <label class="visually-hidden" for="frustrations">What frustrates you about Checkatrade or MyBuilder?</label>
+        <textarea id="frustrations" name="frustrations" rows="3"
+          placeholder="What frustrates you about Checkatrade or MyBuilder? (optional)"></textarea>
+
+        <button class="btn btn-primary" type="submit">Register my interest</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <nav class="container footer-links" aria-label="Footer">
+      <a href="#">About</a>
+      <span aria-hidden="true">·</span>
+      <a href="#">Contact</a>
+      <span aria-hidden="true">·</span>
+      <a href="#">Privacy</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
