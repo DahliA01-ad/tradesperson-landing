@@ -79,15 +79,8 @@
        The dark navy panel from the Figma design. This is the section
        that actually earns its keep: it collects your first supply-side leads.
 
-       The form posts to FormSubmit.co — a free service that emails you
-       every submission, no account needed. HOW IT ACTIVATES: the first
-       time anyone submits (do it yourself as a test), FormSubmit emails
-       you a one-time confirmation link. Click it, and the form is live.
-
-       SPAM TIP: after that first confirmation, FormSubmit's email gives
-       you a random alias string. Replace the email address below with
-       that alias before pushing to GitHub, so your address isn't
-       harvestable from the public source code. -->
+       The form posts to Formspree — submissions arrive by email and
+       also appear in the Formspree dashboard (formspree.io). -->
   <section class="signup" id="signup">
     <div class="container">
       <h2>Work for yourself, not an agency</h2>
@@ -96,12 +89,11 @@
         Free for early sign-ups.
       </p>
 
-      <form action="https://formsubmit.co/a_dahli@outlook.com" method="POST">
-        <!-- Hidden config fields FormSubmit understands: -->
-        <!-- subject line of the email you receive -->
+      <form action="https://formspree.io/f/xkoldnka" method="POST">
+        <!-- Hidden field Formspree understands: sets the email subject line -->
         <input type="hidden" name="_subject" value="New tradesperson signup!">
-        <!-- see answers as a tidy table instead of raw text -->
-        <input type="hidden" name="_template" value="table">
+        
+      
         <!-- Every input is wrapped with a <label> for accessibility.
              The label is visually hidden (see .visually-hidden in CSS)
              but screen readers still announce it. Placeholders alone
