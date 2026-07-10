@@ -80,26 +80,29 @@
        that actually earns its keep: it collects your first supply-side leads.
 
        The form posts to Formspree — submissions arrive by email and
-       also appear in the Formspree dashboard (formspree.io). -->
+       also appear in the Formspree dashboard (formspree.io).
+
+       Deliberately low-friction: just email, trade, and postcode
+       district. No phone number — trust has to be earned before
+       asking for that. -->
   <section class="signup" id="signup">
     <div class="container">
       <h2>Work for yourself, not an agency</h2>
       <p class="signup-sub">
-        Register your interest and be first on the platform in your city.
+        Register your interest and be first on the platform in your area.
         Free for early sign-ups.
       </p>
 
       <form action="https://formspree.io/f/xkoldnka" method="POST">
         <!-- Hidden field Formspree understands: sets the email subject line -->
         <input type="hidden" name="_subject" value="New tradesperson signup!">
-        
-      
+
         <!-- Every input is wrapped with a <label> for accessibility.
              The label is visually hidden (see .visually-hidden in CSS)
              but screen readers still announce it. Placeholders alone
              are not accessible labels. -->
-        <label class="visually-hidden" for="name">Full name</label>
-        <input id="name" name="name" type="text" placeholder="Full name" required>
+        <label class="visually-hidden" for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="Email address" required>
 
         <label class="visually-hidden" for="trade">Trade</label>
         <select id="trade" name="trade" required>
@@ -109,17 +112,17 @@
           <option value="both">Both</option>
         </select>
 
-        <label class="visually-hidden" for="postcode">Postcode area you cover</label>
-        <input id="postcode" name="postcode" type="text" placeholder="Postcode area you cover (e.g. IV51)" required>
+        <label class="visually-hidden" for="postcode">First part of your postcode</label>
+        <input id="postcode" name="postcode_district" type="text"
+          placeholder="First part of your postcode (e.g. IV51)" required>
+        <p class="field-hint">Just the district — so we know which areas to launch first.</p>
 
-        <label class="visually-hidden" for="phone">Phone number</label>
-        <input id="phone" name="phone" type="tel" placeholder="Phone number" required>
-
-        <label class="visually-hidden" for="frustrations">What frustrates you about Checkatrade or MyBuilder?</label>
-        <textarea id="frustrations" name="frustrations" rows="3"
-          placeholder="What frustrates you about Checkatrade or MyBuilder? (optional)"></textarea>
+        <label class="visually-hidden" for="work-source">How do you find most of your work at the moment?</label>
+        <textarea id="work-source" name="how_you_find_work" rows="3"
+          placeholder="How do you find most of your work at the moment? (optional)"></textarea>
 
         <button class="btn btn-primary" type="submit">Register my interest</button>
+        <p class="form-note">No spam — one email when we launch in your area, that's it.</p>
       </form>
     </div>
   </section>

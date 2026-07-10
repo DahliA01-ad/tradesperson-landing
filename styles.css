@@ -233,6 +233,22 @@ textarea:focus-visible,
   resize: vertical;         /* let users make it taller, never wider */
 }
 
+/* Small helper text directly under a field. The negative top margin
+   tucks it close to its input, overriding the form's 12px gap. */
+.field-hint {
+  font-size: 0.75rem;
+  color: var(--navy-text);
+  margin-top: -6px;
+  padding-left: 4px;
+}
+
+/* Reassurance line under the submit button */
+.form-note {
+  font-size: 0.8rem;
+  color: var(--navy-text);
+  text-align: center;
+}
+
 /* Accessible-but-invisible labels. This exact pattern is used across
    the industry — screen readers read it, sighted users never see it. */
 .visually-hidden {
